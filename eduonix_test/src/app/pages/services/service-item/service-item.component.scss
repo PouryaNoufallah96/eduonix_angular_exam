@@ -1,0 +1,14 @@
+.service {
+  &-container {
+    @apply flex flex-col justify-center bg-white shadow-lg rounded-md p-8;
+  }
+  &-title {
+    @apply flex flex-wrap text-blue-600 mb-2;
+    &-text {
+      @apply font-bold;
+    }
+  }
+  &-desc {
+    @apply text-sm text-gray-600;
+  }
+}

@@ -1,0 +1,60 @@
+<div class="md:container md:mx-auto ">
+    <div class="max-w-5xl mx-auto md:px-6 lg:px-8 mb-12 mt-4">
+        <div class="bg-white w-full shadow-lg rounded p-8 sm:p-12">
+            <p class="text-3xl font-bold leading-7 text-center">Contact me</p>
+            <form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
+                <div class="md:flex items-center mt-12 gap-4">
+
+                    <div class=" w-full md:w-1/2">
+                        <div class="input-container">
+                            <label class="input-label">Name</label>
+                            <input type="text" formControlName="name" id="contact-name" name="name"
+                                class="input-self" />
+                            <p class="text-error" *ngIf="f['name'].errors?.['required'] && f['name'].touched">
+                                Please enter your name
+                            </p>
+                        </div>
+                    </div>
+                    <div class=" w-full md:w-1/2">
+                        <div class="input-container">
+                            <label class="input-label">Phone</label>
+                            <input type="phone" formControlName="phone" id="contact-phone" name="phone"
+                                class="input-self" />
+                            <p class="text-error" *ngIf="f['phone'].errors?.['required'] && f['phone'].touched">
+                                Please enter your phone number
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="mt-8">
+                    <div class=" w-full">
+                        <div class="input-container">
+                            <label class="input-label">Subject</label>
+                            <input type="text" formControlName="subject" id="contact-subject" name="subject"
+                                class="input-self" />
+                            <p class="text-error" *ngIf="f['subject'].errors?.['required'] && f['subject'].touched">
+                                Please enter the subject
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <div class="w-full flex flex-col mt-8">
+                        <label class="textarea-label">Message</label>
+                        <textarea type="text" class="textarea-self" formControlName="message" id="contact-message"
+                            name="message"></textarea>
+                        <p class="text-error" *ngIf="f['message'].errors?.['required'] && f['message'].touched">
+                            Please enter the message
+                        </p>
+                    </div>
+                </div>
+                <div class="flex items-center justify-center w-full">
+                    <button [disabled]="contactForm.invalid" type="submit"
+                        class="mt-9 font-semibold leading-none text-white py-4 px-10 bg-blue-700 rounded hover:bg-blue-600 focus:ring-2 focus:ring-offset-2 focus:ring-blue-700 focus:outline-none">
+                        Send message
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
